@@ -9,8 +9,7 @@ const defaultName = nameEl.textContent;
 inputEl.addEventListener("input", onInput);
 
 function onInput(event) {
-  console.log(event);
-  if (!(event.target.value === "")) nameEl.textContent = event.target.value;
+  if (event.target.value) nameEl.textContent = event.target.value;
   else nameEl.textContent = defaultName;
 }
 

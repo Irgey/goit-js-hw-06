@@ -15,19 +15,15 @@ createBtnEl.addEventListener("click", () => {
 destroyBtnEl.addEventListener("click", destroyBoxes);
 
 function createBoxes(amount) {
-  console.log(amount);
   let boxesEl = "";
   for (let index = 0; index < amount; index++) {
     boxesEl += `<div style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()};"></div>`;
     size += 10;
   }
-  size = 30;
   divBoxesEl.insertAdjacentHTML("beforeend", boxesEl);
 }
 
 function destroyBoxes() {
-  console.log(divBoxesEl.children);
-  while (divBoxesEl.firstChild) {
-    divBoxesEl.removeChild(divBoxesEl.firstChild);
-  }
+  divBoxesEl.innerHTML = "";
+  size = 30;
 }

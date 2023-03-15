@@ -1,16 +1,14 @@
 /*
   |============================
-  | Third ver. with FormData
+  | Second (via event.target and destructuring) version
   |============================
 */
-
 const formEl = document.querySelector(".login-form");
 
 formEl.addEventListener("submit", onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
-  console.dir(event);
   const {
     email: { value: email },
     password: { value: password },
@@ -19,42 +17,14 @@ function onFormSubmit(event) {
   if (email === "" || password === "") {
     alert("Всі поля повинні бути заповнені(╯°□°）╯︵ ┻━┻!!!");
   } else {
-    const userAuth = new FormData(event.target);
-    userAuth.forEach((value, key) => {
-      console.log(value);
-      console.log(key);
-    });
+    const userAuth = {
+      login: email,
+      password: password,
+    };
+    console.log(userAuth);
     formEl.reset();
   }
 }
-/*
-  |============================
-  | Second (via event.target and destructuring) version
-  |============================
-*/
-// const formEl = document.querySelector(".login-form");
-
-// formEl.addEventListener("submit", onFormSubmit);
-
-// function onFormSubmit(event) {
-//   event.preventDefault();
-//   console.dir(event);
-//   const {
-//     email: { value: email },
-//     password: { value: password },
-//   } = event.target.elements;
-
-//   if (email === "" || password === "") {
-//     alert("Всі поля повинні бути заповнені(╯°□°）╯︵ ┻━┻!!!");
-//   } else {
-//     const userAuth = {
-//       login: email,
-//       password: password,
-//     };
-//     console.log(userAuth);
-//     formEl.reset();
-//   }
-// }
 
 /*
   |============================
@@ -81,6 +51,34 @@ function onFormSubmit(event) {
 //       password: formEl.elements.password.value,
 //     };
 //     console.log(userAuth);
+//     formEl.reset();
+//   }
+// }
+/*
+  |============================
+  | Third ver. with FormData
+  |============================
+*/
+
+// const formEl = document.querySelector(".login-form");
+
+// formEl.addEventListener("submit", onFormSubmit);
+
+// function onFormSubmit(event) {
+//   event.preventDefault();
+//   const {
+//     email: { value: email },
+//     password: { value: password },
+//   } = event.target.elements;
+
+//   if (email === "" || password === "") {
+//     alert("Всі поля повинні бути заповнені(╯°□°）╯︵ ┻━┻!!!");
+//   } else {
+//     const userAuth = new FormData(event.target);
+//     userAuth.forEach((value, key) => {
+//       console.log(value);
+//       console.log(key);
+//     });
 //     formEl.reset();
 //   }
 // }

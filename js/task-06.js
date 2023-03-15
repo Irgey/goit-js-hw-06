@@ -9,8 +9,6 @@ inputEl.addEventListener("blur", onInputFocusLost);
   |============================
 */
 function onInputFocusLost() {
-  //   console.log(validLength);
-  //   console.log(inputEl.value.length);
   if (inputEl.value.length === validLength) {
     inputEl.classList.remove("invalid");
     inputEl.classList.add("valid");
